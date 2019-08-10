@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+
+    <data>
+        <variable name="viewModel" type="br.com.hivecode.notes.viewmodel.RepoViewModel"/>
+        <variable name="repo" type="br.com.hivecode.notes.data.entity.Repo"/>
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:orientation="vertical"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content">
+
+        <TextView
+                android:id="@+id/item_repos_name"
+                android:text="@{repo.name}"
+                android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+        <TextView
+                android:id="@+id/item_repos_fullname"
+                android:text="@{repo.full_name}"
+                android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+        <Switch
+                android:text="Is private? "
+                android:id="@+id/item_repos_private"
+                android:checked="@{repo.private}"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:onCheckedChanged="@{() -> viewModel.turnToPrivate(repo)}"
+
+        />
+
+    </LinearLayout>
+
+</layout>
